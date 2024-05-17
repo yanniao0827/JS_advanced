@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        border: 1px solid blue;
+        background-color: #8cbdf2;
+      }
+      .ball {
+        position: absolute;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        background-color: #ecb770;
+        left: 100px;
+        top: 100px;
+        /* 把pointer-events設為none會讓滑鼠滑過圓點時位置不會跑掉 */
+        pointer-events: none;
+      }
+      
+    </style>
+  </head>
+  <body>
+
+    <div class="rect"></div>
+    </div>
+    <div id="info"></div>
+    <script>
+      //隨機RGB
+      const getRandomRGB=()=>{
+        let n =Math.floor(16777216*Math.random());
+        // 把取得的數字變成字串
+        n=n.toString(16);
+        // 把這段隨機數字串變成六位數，如果不夠6位就補0，並且在前面加上#，讓他能變成背景顏色
+        return "#"+n.padStart(6,"0");
+      }; 
+      const rect = document.querySelector(".rect");
+      const info = document.querySelector("#info");
+
+      const mDown=(e)=>{
+        rect.addEventListener("mousemove",mMove);
+      };
+      const mUp = (e) => {
+        rect.removeEventListener("mousemove", mMove);
+      };
+
+      const mMove=(e)=> {
+        // 畫筆隨機大小
+        const size = 10 + Math.floor(Math.random() * 21);
+
+        // client代表以顯示區為基準
+        // page代表以整個頁面為基準
+        // offset代表以target為基準
+        const b=document.createElement("div");
+        b.className="ball";
+        b.style.width = `${size}px`;
+        b.style.height = `${size}px`;
+        b.style.left = `${e.offsetX - size/2}px`;
+        b.style.top = `${e.offsetY - size/2}px`;
+        b.style.backgroundColor = getRandomRGB();
+        rect.append(b);
+      };
+
+        rect.addEventListener("mousedown", mDown);
+        // 如果畫超出頁面了，觸發mUP，把畫畫的動作暫停，沒有寫這個的話就算在矩形外放開滑鼠，再滑回矩形時即使沒有按著滑鼠也會觸發畫畫
+        window.addEventListener("mouseup", mUp);
+
+    </script>
+  </body>
+</html>
