@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        border: 1px solid blue;
+        background-color: #8cbdf2;
+      }
+      .ball {
+        position: absolute;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        background-color: #ecb770;
+        left: 100px;
+        top: 100px;
+        /* 把pointer-events設為none會讓滑鼠滑過圓點時位置不會跑掉 */
+        pointer-events: none;
+      }
+      
+    </style>
+  </head>
+  <body>
+
+    <div class="rect"></div>
+    </div>
+    <div id="info"></div>
+    <script>
+      const rect = document.querySelector(".rect");
+      const info = document.querySelector("#info");
+
+      const mDown=(e)=>{
+        rect.addEventListener("mousemove",mMove);
+      };
+      const mUp = (e) => {
+        rect.removeEventListener("mousemove", mMove);
+      };
+
+      const mMove=(e)=> {
+        // client代表以顯示區為基準
+        // page代表以整個頁面為基準
+        // offset代表以target為基準
+        const b=document.createElement("div");
+        b.className="ball";
+        // 設定-10會讓圓點出現位置比較直覺，滑鼠在哪就在哪
+        b.style.left = `${e.offsetX-10}px`;
+        b.style.top = `${e.offsetY-10}px`;
+        rect.append(b);
+      };
+
+        rect.addEventListener("mousedown", mDown);
+        // 如果畫超出頁面了，觸發mUP，把畫畫的動作暫停
+        window.addEventListener("mouseup", mUp);
+
+    </script>
+  </body>
+</html>
