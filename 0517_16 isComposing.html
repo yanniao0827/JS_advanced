@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+  </head>
+  <body>
+   <input type="text" id="myInput" />
+    <script>
+      const myInput = document.querySelector("#myInput");
+
+    const handler = (e) => {
+    const {key, keyCode, which, code, isComposing} = e;
+    // 若要判斷功能鍵的左右鍵時, 使用 code
+    // 順序是:鍵盤功能,鍵盤虛擬碼,鍵盤虛擬碼,鍵盤功能(可以顯示左右),isComposing是用來顯示打中文字的狀態，是true就是還在打，false代表打完了
+    console.log({key, keyCode, which, code,isComposing});
+    // 表示中文字仍在輸入狀態時不要把字顯示出來
+    if(!isComposing){
+        console.log(myInput.value);
+    }
+    };
+
+ 
+    // myInput.addEventListener("keydown", handler);
+    myInput.addEventListener("keyup", handler);
+    // myInput.addEventListener("keypress", handler);
+    </script>
+  </body>
+</html>
