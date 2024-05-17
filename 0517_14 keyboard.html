@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+  </head>
+  <body>
+   <input type="text" id="myInput" />
+    <script>
+      const myInput = document.querySelector("#myInput");
+
+    const handler = (e) => {
+    const {key, keyCode, which, code} = e;
+    // 若要判斷功能鍵的左右鍵時, 使用 code
+    // 順序是:鍵盤功能,鍵盤虛擬碼,鍵盤虛擬碼,鍵盤功能(可以顯示左右)
+    console.log({key, keyCode, which, code});
+    };
+
+    // myInput.addEventListener("keydown", handler);
+    myInput.addEventListener("keyup", handler);
+    // myInput.addEventListener("keypress", handler);
+    </script>
+  </body>
+</html>
