@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .rect {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      border: 1px solid blue;
+      background-color: #8cbdf2;
+    }
+    .ball {
+        position: absolute;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        border: 1px solid red;
+        background-color: #ecb770;
+        line-height: 60px;
+        text-align: center;
+        cursor: pointer;
+      }
+  </style>
+<body>
+    <div class="rect">
+    </div>
+</body>
+<script>
+    const rect = document.querySelector(".rect");
+    for(let i=0; i<10; i++){
+        // 創造10個div標籤，都給ball屬性，每個div都向左偏移70px，都離頂部100px，append指將這些div加入矩形中，不加的話所有的圓都會顯示不出來
+        const b =document.createElement("div");
+        b.className = "ball";
+        b.style.left = `${i * 70}px`;
+        b.style.top = `100px`;
+        b.innerHTML = i + 1;
+        rect.append(b);
+    }
+
+    // 點圓就顯示圓裡面的數字，點矩形會顯示1~10所有數字
+    rect.addEventListener("click", (e) => {
+        console.log(e.target.innerText);
+      });
+
+
+  </script>
+</html>
