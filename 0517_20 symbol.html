@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <script>
+
+      const obj2 = { name: "Lea" ,age:22};
+
+      const s1 = Symbol("abc");
+      const s2 = Symbol("abc");
+
+      obj2[s1] = 123;
+      obj2[s2] = 456;
+
+      console.log(obj2);
+      for(let k in obj2){
+        console.log(k,obj2[k]);
+      }
+
+      console.log(obj2['[object Object]']);
+      // Object 類型, key 主要是字串
+
+     console.log(Object.getOwnPropertySymbols(obj2)); // 取得以 Symbol 類型的 keys
+      console.log(Object.getOwnPropertyNames(obj2)); // 取得以 String 類型的 keys
+
+    </script>
+  </body>
+</html>
