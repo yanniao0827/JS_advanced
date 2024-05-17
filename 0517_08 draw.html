@@ -56,7 +56,7 @@
       };
 
         rect.addEventListener("mousedown", mDown);
-        // 如果畫超出頁面了，觸發mUP，把畫畫的動作暫停
+        // 如果畫超出頁面了，觸發mUP，把畫畫的動作暫停，沒有寫這個的話就算在矩形外放開滑鼠，再滑回矩形時即使沒有按著滑鼠也會觸發畫畫
         window.addEventListener("mouseup", mUp);
 
     </script>
