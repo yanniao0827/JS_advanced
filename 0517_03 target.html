@@ -35,19 +35,19 @@
 
     // event bubbling
     window.addEventListener("click", (e) => {
-      console.log("window-------------");
+      console.log("window-------------",e.eventPhase);
     });
 
     rect.addEventListener("click", (e) => {
-      console.log("rect-------------");
+      console.log("rect-------------",e.eventPhase);
     });
 
     document.addEventListener("click", (e) => {
-      console.log("document-------------");
+      console.log("document-------------",e.eventPhase);
     });
 
     ball.addEventListener("click", (e) => {
-      console.log("ball-------------");
+      console.log("ball-------------",e.eventPhase);
     });
 
   </script>
