@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .rect {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      border: 1px solid blue;
+      background-color: #8cbdf2;
+    }
+    .ball {
+      position: absolute;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      background-color: #ecb770;
+      line-height: 300px;
+      text-align: center;
+    }
+  </style>
+<body>
+    <div class="rect">
+        <div class="ball"><span>LEA</span></div>
+    </div>
+</body>
+<script>
+    const rect = document.querySelector(".rect");
+    const ball = document.querySelector(".ball");
+
+    // event bubbling
+    window.addEventListener("click", (e) => {
+        console.log("window---bubbling----------", e.eventPhase);
+      });
+
+      ball.addEventListener("click", (e) => {
+        console.log("ball---bubbling----------", e.eventPhase);
+        // event.stopPropagation(); //跑到這裡就停止，所以不會再向外看到rect、document、window3
+      });
+      document.addEventListener("click", (e) => {
+        console.log("document---bubbling----------", e.eventPhase);
+      });
+      rect.addEventListener("click", (e) => {
+        console.log("rect---bubbling----------", e.eventPhase);
+        event.stopPropagation();
+      });
+
+    // event capturing，要capture就在後面加一個true，從target把外面的東西抓進來，所以會變成外到內的順序
+    window.addEventListener(
+        "click",
+        (e) => {
+          console.log("window---capturing----------", e.eventPhase);
+        },
+        true
+      );
+
+      ball.addEventListener(
+        "click",
+        (e) => {
+          console.log("ball---capturing----------", e.eventPhase);
+        },
+        true
+      );
+      document.addEventListener(
+        "click",
+        (e) => {
+          console.log("document---capturing----------", e.eventPhase);
+        },
+        true
+      );
+      rect.addEventListener(
+        "click",
+        (e) => {
+          console.log("rect---capturing----------", e.eventPhase);
+        },
+        true
+      );
+    </script>
+  </script>
+</html>
