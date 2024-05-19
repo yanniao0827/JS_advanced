@@ -11,7 +11,7 @@
 
       const obj2 = { name: "Lea" ,age:22};
 
-      const s1 = Symbol("abc");
+      const s1 = Symbol("abc"); //這裡的acb有點像標籤的概念
       const s2 = Symbol("abc");
 
       obj2[s1] = 123;
@@ -25,8 +25,9 @@
       console.log(obj2['[object Object]']);
       // Object 類型, key 主要是字串
 
-     console.log(Object.getOwnPropertySymbols(obj2)); // 取得以 Symbol 類型的 keys
-      console.log(Object.getOwnPropertyNames(obj2)); // 取得以 String 類型的 keys
+    // 要看物件內有哪些symbok屬性，使用getOwnPropertySymbols
+      console.log(Object.getOwnPropertySymbols(obj2)); // 取得以 Symbol 類型的 keys
+     console.log(Object.getOwnPropertyNames(obj2)); // 取得以 String 類型的 keys
 
     </script>
   </body>
