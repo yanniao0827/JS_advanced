@@ -26,6 +26,7 @@
       console.log(obj1['[object Object]']);
       // Object 類型, key 主要是字串
 
+      // 要知道是不是可迭代，檢查看有沒有Symbol.iterator屬性，沒有的話會出現undefined
       console.log(obj1[Symbol.iterator]);
       console.log(ar1[Symbol.iterator]); // 陣列是可迭代的類型
       console.log(str1[Symbol.iterator]); // 字串是可迭代的類型
