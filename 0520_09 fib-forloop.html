@@ -13,6 +13,7 @@
 
         const startTime=Date.now(); //開始進行計算的timestamp
         
+        // 直接從第二項開始計算，省去判斷i=0跟i=1的時間
         for(let i=2;i<=40;i++){
             cache[i]=cache[i-1]+cache[i-2];
         }
