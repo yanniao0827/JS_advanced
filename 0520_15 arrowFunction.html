@@ -22,7 +22,7 @@
             },
             // 箭頭函式
             f3:()=>this,
-            // 一個神祕的函式寫法
+            // 一個神祕的函式寫法(一種傳統函式)
             f4() {
             return () => this;
         },
@@ -33,7 +33,7 @@
         console.log(obj.f1());   // obj
         console.log(obj.f2());   // obj，和f1一樣只是寫法不同
         console.log(obj.f3());   // window，因為箭頭函式綁定this
-        console.log(obj.f4()()); // obj
+        console.log(obj.f4()()); // obj，因為在建立f4時才會建立後面的函式，而f4本身是一種傳統函式，所以是obj
     </script>
   </body>
 </html>
