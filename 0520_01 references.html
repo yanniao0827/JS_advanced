@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre id="info"></pre>
+    <script>
+
+      const obj1 = { 
+        name: {first:"Lea",
+               last:"Chen"} ,
+            age:22,
+            gender:"Female"};
+
+      // const obj2 = { ...obj1 }; // 展開複製, 淺層複製, 只有一層
+      const obj2 = {};
+      for (let k in obj1) {
+        // 把obj1的key參照給obj2
+        obj2[k] = obj1[k];
+      }
+
+     // obj2參照了obj1，而因為淺層複製只會複製第一層，所以只有name的地方會跟著一起改變 
+      obj1.age = 31;
+      obj1.name.last = "doe";
+
+      console.log(obj1);
+      console.log(obj2);
+
+      info.innerText = JSON.stringify(obj1, null, 4);
+      info.innerText += "\n";
+      info.innerText += JSON.stringify(obj2, null, 4);
+    </script>
+  </body>
+</html>
