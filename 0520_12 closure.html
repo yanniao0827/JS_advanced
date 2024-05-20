@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre id="info"></pre>
+    <script>
+        const f=(function(){
+            let n=3; //最多呼叫3次，每次呼叫次數都遞減
+            return function (a){
+                n--; //這裡的n是向外一層找的
+                if(n>=0){
+                    return a*a;
+                } else{
+                    return null;
+                }
+            }
+        })();
+
+      console.log(f(6));
+      console.log(f(7));
+      console.log(f(8));
+      console.log(f(9)); //因為前面已經呼叫了3次，從這裡開始就只會顯示null
+      console.log(f(10)); 
+    </script>
+  </body>
+</html>
