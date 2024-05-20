@@ -10,15 +10,15 @@
     <script>
       const info = document.querySelector("#info");
 
-      const months = ['April', 'Jan', 'Feb', 'Dec','March'];
+      const months = ['April', 'Jan', 'Sep', 'Dec','March'];
 
       info.innerText +=  JSON.stringify(months) + "\n\n";
       
       months.sort((a, b) => {
         // 降冪排序
-        return a>b? -1:1;
+        // return a>b? -1:1;
         // 昇冪排序
-        // return a<b? -1:1;
+        return a<b? -1:1;
       });
 
       info.innerText += "\n" + JSON.stringify(months) + "\n\n";
