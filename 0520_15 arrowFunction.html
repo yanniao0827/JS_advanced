@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+
+    <script>
+        const obj={
+            name:"object1",
+            myThis:this,
+            // 傳統函式
+            f1:function(){
+                return this;
+            },
+            // 省略function的函式，但不是箭頭函式
+            f2(){
+                return this;
+            },
+            // 箭頭函式
+            f3:()=>this,
+            // 一個神祕的函式寫法
+            f4() {
+            return () => this;
+        },
+        }
+
+        // 找funtion裡面的this是什麼
+        console.log(obj.myThis); // window
+        console.log(obj.f1());   // obj
+        console.log(obj.f2());   // obj，和f1一樣只是寫法不同
+        console.log(obj.f3());   // window，因為箭頭函式綁定this
+        console.log(obj.f4()()); // obj
+    </script>
+  </body>
+</html>
