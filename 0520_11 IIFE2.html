@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre id="info"></pre>
+    <script>
+
+      console.log(f(5));
+      console.log(a);
+
+      // 宣告的部份會 "提升" hoisting
+      function f(n) {
+        return n*n
+      };
+
+      // 宣告的部份會 "提升" hoisting
+      var a = 20;
+      //使用var做宣告的時候會同時做以下的動作，所以console.log的時候即使var在console.log後面，只會顯示undefined，但這時如果把var變成let，就會跳出紅色錯誤 
+      /*
+      var a;
+      a = 20;
+      */
+    </script>
+  </body>
+</html>
