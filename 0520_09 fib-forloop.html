@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre id="info"></pre>
+
+    <script>
+        const cache=[0,1]; //先存進第0項與第1項的值
+
+        const startTime=Date.now(); //開始進行計算的timestamp
+        
+        for(let i=2;i<=40;i++){
+            cache[i]=cache[i-1]+cache[i-2];
+        }
+
+        // 把計算的結果變成陣列後轉成JSON
+        info.innerText=JSON.stringify(cache)+"\n";
+        // 紀錄完成整個運算所需的時間
+        info.innerText+=Date.now()-startTime;
+
+    </script>
+</body>
+</html>
