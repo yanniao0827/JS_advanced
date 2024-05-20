@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre id="info"></pre>
+    <script>
+        const ar1=[2,3,4,5,6,7,8,9];
+        // map後會有新陣列，用ar2保存
+        // el指的是element，是固定的寫法
+        const ar2=ar1.map((el,i)=>{
+            return el*el; //出來的陣列長度會等於原本的陣列長度
+        });
+
+        const ar3=ar1.map((el,i)=>{
+            return {el,i}; //每一項都會成為一個新的物件
+        });
+        // 原本陣列
+        info.innerText += "\n" + JSON.stringify(ar1) + "\n\n";
+        // 新陣列
+        info.innerText += "\n" + JSON.stringify(ar2) + "\n\n";
+        info.innerText += "\n" + JSON.stringify(ar3) + "\n\n";
+    </script>
+  </body>
+</html>
