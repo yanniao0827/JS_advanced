@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre id="info"></pre>
+
+    <script>
+        const cache=[0,1]; //先存進第0項與第1項的值
+        const ar=[];
+
+        const fib=(n)=>{
+            if(cache[n])return cache[n]; //如果計算過了，就回傳進cache裡，不用再算第二次以節省時間
+            if(n<=0)return 0; //第0項
+            if(n===1)return 1; //第1項
+
+            const v= fib(n-1)+fib(n-2);
+            cache[n]=v; //算好的結果存進cache裡面
+            return v;
+        };
+
+        const startTime=Date.now(); //開始進行計算的timestamp
+        for(let i=1;i<=40;i++){
+            // 把計算完的結果推到陣列裡
+            ar.push(fib(i));
+        }
+
+        // 把計算的結果變成陣列後轉成JSON
+        info.innerText=JSON.stringify(ar)+"\n";
+        // 紀錄完成整個運算所需的時間
+        info.innerText+=Date.now()-startTime;
+
+    </script>
+</body>
+</html>
