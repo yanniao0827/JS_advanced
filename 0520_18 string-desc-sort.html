@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre id="info"></pre>
+    <script>
+      const info = document.querySelector("#info");
+
+      const months = ['April', 'Jan', 'Feb', 'Dec','March'];
+
+      info.innerText +=  JSON.stringify(months) + "\n\n";
+      
+      months.sort((a, b) => {
+        // 降冪排序
+        return a>b? -1:1;
+        // 昇冪排序
+        // return a<b? -1:1;
+      });
+
+      info.innerText += "\n" + JSON.stringify(months) + "\n\n";
+    </script>
+  </body>
+</html>
