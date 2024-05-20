@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre id="info"></pre>
+
+    <script>
+        // IIFE表示立即執行函式，是把原本的函式或是箭頭函式用()包起來，在這裡面所做的console.log會是一個區域變數，如果拿到函式外面就變成全域變數，全域變數如果能越少越好，能使用區域變數去解決的就盡量使用區域變數
+
+        (function(){
+            console.log(123);
+        })();
+        (()=>{
+            console.log(456);
+        })();
+    </script>
+</body>
+</html>
