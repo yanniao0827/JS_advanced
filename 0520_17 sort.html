@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre id="info"></pre>
+
+    <script>
+      const info = document.querySelector('#info');
+      const ar2 = [12, 3, 67, 23, 9, 35];
+
+      ar2.sort((a,b)=>{
+        info.innerText+= JSON.stringify({a,b})+"\n"
+        // 由小到大
+        // return a - b;
+        // 由大到小
+        return b - a;
+      }); 
+      info.innerText +="\n"+ JSON.stringify(ar2) + "\n\n";
+
+
+    </script>
+  </body>
+</html>
