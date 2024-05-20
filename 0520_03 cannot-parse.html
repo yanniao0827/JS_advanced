@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre id="info"></pre>
+
+    <script>
+        const p1={name:"Lea",age:22};
+        const p2={name:"Peter",age:23};
+        const p3={name:"Chen",age:24};
+        
+        // 給p1一個next屬性指向p2，p2指向p3，p3指向p1，這三者之間成為一個循環，但如果直接去做stringify傳統方式複製會產生錯誤
+        p1.next = p2;
+        p2.next = p3;
+        p3.next = p1;
+
+      const q1 = structuredClone(p1); // 深層複製
+
+      p1.next.name = "john";
+      console.log(p1.next.name);
+
+    // 深層深層複製出的q1獨立於p1，所以不會受到p1.next改變的影響，q1的next還是peter
+      console.log(q1.next.name);
+
+    </script>
+</body>
+</html>
