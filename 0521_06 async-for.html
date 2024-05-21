@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myPromise1(n){
+            return new Promise((resolve,reject)=>{
+                const ms= 200+ Math.floor(Math.random()*500);
+                setTimeout(()=>{
+                    resolve({n,ms});
+                },ms);
+            });
+        }
+
+        // a和b內部仍然會照著1~10的順序顯示，因為內部是讓他看起來像同步的寫法，但因為兩個async本來就是非同步，console時會把a跟b混在一起，如果想要先顯示a再顯示b，就不要分兩個async寫
+        (async()=>{
+            for(let i=1;i<=10;i++){
+                console.log(await myPromise1("a"+i));
+            }
+        })();
+
+        (async()=>{
+            for(let i=1;i<=10;i++){
+                console.log(await myPromise1("b"+i));
+            }
+        })();
+    </script>
+</body>
+</html>
