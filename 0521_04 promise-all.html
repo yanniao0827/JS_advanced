@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myPromise1(n){
+            return new Promise((resolve,reject)=>{
+                const ms= 200+ Math.floor(Math.random()*500);
+                setTimeout(()=>{
+                    resolve({n,ms});
+                },ms);
+            });
+        }
+
+        const pArr=[];
+        for(let i=10;i<=15;i++){
+            pArr.push(myPromise1(i));
+        }
+
+        // 要所有的promise都完成才會進入這裡
+        Promise.all(pArr).then((r)=>{
+            console.log(`mission complete`,r);
+        });
+    </script>
+</body>
+</html>
