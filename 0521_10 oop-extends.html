@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        class Person2{
+            gender="female"; //可以直接設定屬性
+            constructor(name="Lea",age=20){
+                this.name=name;
+                this.age=age;
+            }
+            getInfo(){
+                return `${this.name}${this.age}`;
+            }
+            toString=()=>JSON.stringify(this); //可以在這裡直接設定toString的方法
+        }
+
+        class Employee2 extends Person2{
+            #id; //私有屬性
+            constructor(name,age,id){
+                super(name,age); //如果是繼承的，一定要在一開始的地方呼叫父類的屬性
+                this.#id=id;
+            }
+            // 繼承來的getInfo可以改寫
+            getInfo(){
+                return `${this.name} ${this.age} ${this.#id}`;
+            }
+        }
+
+        const p3=new Employee2("Leana",22,"A827");
+        console.log(p3.getInfo()); //會用改寫過後的
+        console.log(p3+""); //toString
+    </script>
+  </body>
+</html>
