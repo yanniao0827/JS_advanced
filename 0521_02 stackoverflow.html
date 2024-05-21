@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a=()=>{
+            console.log("a begin");
+            b(); //呼叫b
+            console.log("a end");
+        };
+
+        const b=()=>{
+            console.log("b begin");
+            c(); ////呼叫c
+            console.log("b end");
+        };
+
+        const c=()=>{
+            console.log("c begin");
+            console.log("c end");
+            // c結束後會回到呼叫他的b裡面，b繼續執行console.log("b end");再回到呼叫他的a裡面執行console.log("a end")
+        };
+
+        a();
+    </script>
+</body>
+</html>
