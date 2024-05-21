@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        class Person2{
+            gender="female"; //可以直接設定屬性
+            constructor(name="Lea",age=20){
+                this.name=name;
+                this.age=age;
+            }
+            getInfo(){
+                return `${this.name}${this.age}`;
+            }
+            toString=()=>JSON.stringify(this); //可以在這裡直接設定toString的方法
+        }
+
+        const p2=new Person2("Leana",22);
+        console.log(p2.name);
+        console.log(p2.toString());
+        console.log(p2.gender); //因為前面已經設定過gender，所以會顯示female
+        p2.gender="idk"; //也可以後面再自己改變gender
+        console.log(p2.gender);
+    </script>
+  </body>
+</html>
