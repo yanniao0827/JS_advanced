@@ -29,4 +29,12 @@
     </div>
 
   </body>
+  <script>
+    const hashHandler=()=>{
+        console.log(location.hash);
+    };
+
+    window.addEventListener("hashchange",hashHandler);
+    hashHandler();
+  </script>
 </html>
