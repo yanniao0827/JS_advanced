@@ -17,4 +17,12 @@ console.log("person2 module要export");
 // export : 一般的匯出
 export const PI = 3.14;
 const PI2 = 3.14159;
+const MY_CONST = 123;
 export const b = (n) => n * n * n;
+
+// 把宣告過的變數做匯出，要用{}包起來
+export {
+    PI2,
+    MY_CONST
+  };
+  
